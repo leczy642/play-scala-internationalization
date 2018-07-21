@@ -1,0 +1,25 @@
+@(person: Form[CreatePersonForm])(implicit request: MessagesRequestHeader)
+
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+   @request.messages(key)
+}
+
+@main(Messages("enquiry.title")) {
+	<h3>@Messages("enquiry.instruction")</h3>
+  @form(routes.PersonController.addPerson()) {
+		@inputText(person(Messages("enquiry.name")))
+		@inputText(person(Messages("enquiry.age")))
+		@CSRF.formField
+
+		<div class="buttons">
+			<input type="submit" value="@Messages("enquiry.button")"/>
+		</div>
+	}
+    <h5>Change language</h5>
+    <p><a href ="@routes.PersonController.setDefault()">English</a></p>
+    <p><a href ="@routes.PersonController.displayFrench()">French</a></p>
+
+}

@@ -1,0 +1,5 @@
+enquiry.title = Bienvenue la play
+enquiry.instruction = Entrez votre nom et âge
+enquiry.name = Entrez votre nom
+enquiry.age = Entrez votre âge
+enquiry.button = ajouter une personne
